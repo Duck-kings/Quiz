@@ -1,15 +1,17 @@
+@import 'src/styles/vars.scss';
+
 .header{
   width: 100%;
-  min-height: 75px;
+  min-height: $base*15;
   background: rgba(7, 7, 7, 1);
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-.btnsContainer{
-  width: 650px;
-  margin-right: 50px;
+.navigation{
+  width: $base*130;
+  margin-right: $base*10;
 
   ul{
     list-style: none;
@@ -20,59 +22,76 @@
     justify-content: space-around;
     align-items: center;
   }
+
+  @media screen and (max-width: 1024px) {
+    width: 0;
+    height: 0;
+    display: none;
+    visibility: hidden;
+  }
 }
 
 .btn{
-  font-size: 20px;
-  border: 1px solid #fff;
-  padding: 5px 15px;
+  font-size: $base*4;
+  border: 1px solid $secondary;
+  padding: $base $base*3;
   cursor: pointer;
-  transition: all .3s ease-in;
+  transition: all $transition-normal;
   font-weight: 600;
-  border-radius: 5px;
+  border-radius: $base;
   letter-spacing: 1px;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 
-  /*&::before{
+  &::before{
     content: '';
-    height: 100%;
-    width: 1px;
-    background: #fff;
+    background: $secondary;
     position: absolute;
     top: 0;
     left: 50%;
-  }*/
+    right: 50%;
+    bottom: 0;
+    z-index: -1;
+    transition: all $transition-normal;
+  }
 }
 
 .btn:hover{
-  color: rgba(0, 0, 0, 1);
-  background: #fff;
+  color: $primary;
 }
 
-/*
-.btn:hover.btn::before{
-  animation: btnAnimate .3s forwards;
+.btn:hover::before{
+  left: 0;
+  right: 0;
 }
 
-@keyframes btnAnimate{
-  0%{
-    width: 0px;
+.burger{
+  width: $base*8;
+  height: $base*4;
+  cursor: pointer;
+  display: none;
+  visibility: hidden;
+  margin-right: $base*5;
+
+  span{
+    width: 80%;
+    height: 2px;
+    background: $additional;
+    transition: background $transition-normal;
   }
-  10%{
-    width: 1%;
+
+  @media screen and (max-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    visibility: visible;
   }
-  30%{
-    width: 10%;
-  }
-  60%{
-    width: 25%;
-  }
-  80%{
-    width: 35%;
-  }
-  100%{
-    width: 55%;
-  }
-}*/
+}
+
+.burger:hover span{
+  background: $secondary;
+}
+
 

@@ -7,7 +7,12 @@ export const Header: React.FC = () => {
     <header
       className={styles.header}
     >
-      <nav className={styles.btnsContainer}>
+      <div className={styles.burger}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav className={styles.navigation}>
         <ul>
           <li className={styles.btn}>Profile</li>
           <li className={styles.btn}>Home</li>
