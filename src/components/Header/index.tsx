@@ -14,10 +14,10 @@ export const Header: React.FC = () => {
       </div>
       <nav className={styles.navigation}>
         <ul>
-          <li className={styles.btn}>Profile</li>
           <li className={styles.btn}>Home</li>
-          <li className={styles.btn}>Works</li>
-          <li className={styles.btn}>Educatoin</li>
+          <li className={styles.btn}>Profile</li>
+          <li className={styles.btn}>My Quizes</li>
+          <li className={styles.btn}>Create Quiz</li>
           <li className={styles.btn}>Log out</li>
         </ul>
       </nav>
