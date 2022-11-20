@@ -1,2 +1,148 @@
 @import 'src/styles/vars.scss';
 
+h1{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-bottom: 1px solid $additional;
+  text-align: center;
+  margin-bottom: $base*2;
+}
+
+.container{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #333;
+  border-radius: $base*2;
+  padding: $base*2 $base*3 $base*4;
+
+  @media screen and (max-width: 460px) {
+    left: 0;
+    top: 0;
+    transform: none;
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 460px) { 
+    min-width: $base*90;
+  }
+}
+
+.form{
+  width: 100%;
+}
+
+.fieldContainer{
+  width: 100%;
+  font-size: $base*4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  label{
+    margin-bottom: $base;
+  }
+
+  &:not(:last-child){
+    margin-bottom: $base*3;
+  }
+
+  &:last-child{
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: $base*5;
+  }
+}
+
+.formField{
+  outline: none;
+  padding: $base*2 $base*2;
+  border-radius: $base;
+  width: 100%;
+  background: none;
+  border: 1px solid $additional;
+  color: $secondary;
+
+  &:hover{
+    box-shadow: 0 0 5px 1px $additional;
+  }
+
+  &:focus{
+    border-color: $secondary;
+    box-shadow: 0 0 5px 1px $secondary;
+  }
+}
+
+.formFieldDanger{
+  border: 1px solid rgb(200, 0, 0);
+  outline: none;
+  padding: $base*2 $base*2;
+  border-radius: $base;
+  width: 100%;
+  background: none;
+  color: $secondary;
+
+  &:hover{
+    box-shadow: 0 0 5px 1px rgb(200, 0, 0);
+  }
+
+  &:focus{
+    border-color: rgb(200, 0, 0);
+  }
+}
+
+.btnSubmit{
+  padding: $base*2;
+  outline: none;
+  border: none;
+  border-radius: $base;
+  background: none;
+  color: $secondary;
+  cursor: pointer;
+  width: 100%;
+  border: 1px solid $secondary;
+  transition: all $transition-normal;
+  font-weight: 600;
+
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  &::before{
+    content: '';
+    background: $secondary;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    z-index: -1;
+    transition: all $transition-normal;
+  }
+}
+
+.btnSubmit:hover{
+  color: $primary;
+}
+
+.btnSubmit:hover::before{
+  left: 0;
+  right: 0;
+}
+
+.title{
+  font-size: $base*4;
+}
+
+.mark{
+  color: #ff2600;
+}

@@ -10,13 +10,13 @@ interface ILoginForm {
 }
 
 const validSchema = Yup.object().shape({
-  email: Yup.string(),
-  password: Yup.string()
+  email: Yup.string().required().email(),
+  password: Yup.string().required().min(6)
 });
 
 export const LoginForm: React.FC = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <h1>Register</h1>
       <Formik
         initialValues={{
@@ -28,14 +28,30 @@ export const LoginForm: React.FC = () => {
       >
         {
           ({ errors, touched }) => (
-            <Form>
-              <label htmlFor="email">Email:</label>
-              <Field name='email' id='email' placeholder='john-stark@gmail.com...' />
+            <Form className={styles.form}>
+              <div className={styles.fieldContainer}>
 
-              <label htmlFor="password">Password:</label>
-              <Field name='password' id='password' />
+                <label htmlFor="email">Email:</label>
+                <Field
+                  name='email'
+                  id='email'
+                  placeholder='john-stark@gmail.com...'
+                  className={errors.email ? styles.formFieldDanger : styles.formField}
+                />
+              </div>
 
-              <button type='submit'>Submit</button>
+              <div className={styles.fieldContainer}>
+                <label htmlFor="password">Password:</label>
+                <Field
+                  name='password'
+                  id='password'
+                  className={errors.password ? styles.formFieldDanger : styles.formField}
+                />
+              </div>
+
+              <div className={styles.fieldContainer}>
+                <button type='submit' className={styles.btnSubmit}>Submit</button>
+              </div>
             </Form>
           )
         }
